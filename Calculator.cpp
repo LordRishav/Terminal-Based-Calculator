@@ -2,7 +2,7 @@
 #include <functional>
 #include <cmath>
 #include <fstream>
-#include "NewCalcFunctions.h"
+#include "CalculatorFunctions.h"
 double total_num;
 int end_option;
 int option;
@@ -17,24 +17,21 @@ int main()
         switch (option)
         {
         case 1:
-            total_num = math("Addition", std::plus<>(), false);
-            std::cout << total_num << '\n';
+            total_num = math("Addition", std::plus<>(), false, " + ");
             break;
         case 2:
-            total_num = math("Subtraction", std::minus<>(), false);
-            std::cout << total_num << "\n";
+            total_num = math("Subtraction", std::minus<>(), false, " - ");
+
             break;
         case 3:
-            total_num = math("Division", std::divides<>(), false);
-            std::cout << total_num << "\n";
+            total_num = math("Division", std::divides<>(), false, " / ");
+
             break;
         case 4:
-            total_num = math("Multiplication", std::multiplies<>(), false);
-            std::cout << total_num << "\n";
+            total_num = math("Multiplication", std::multiplies<>(), false, " X ");
             break;
         case 5:
             total_num = square_root("Square root", false);
-            std::cout << total_num << "\n";
             break;
         }
         std::cout << "Please choose an option from the list:" << '\n';
@@ -53,24 +50,19 @@ int main()
             switch (option2)
             {
             case 1:
-                total_num = math("Add", std::plus<>(), true);
-                std::cout << total_num << '\n';
+                total_num = math("Add", std::plus<>(), true, " + ");
                 break;
             case 2:
-                total_num = math("Subtract", std::minus<>(), true);
-                std::cout << total_num << "\n";
+                total_num = math("Subtract", std::minus<>(), true, " - ");
                 break;
             case 3:
-                total_num = math("Divide", std::divides<>(), true);
-                std::cout << total_num << "\n";
+                total_num = math("Divide", std::divides<>(), true, " / ");
                 break;
             case 4:
-                total_num = math("Multiply", std::multiplies<>(), true);
-                std::cout << total_num << "\n";
+                total_num = math("Multiply", std::multiplies<>(), true, " X ");
                 break;
             case 5:
                 total_num = square_root("Square root", true);
-                std::cout << total_num << "\n";
                 break;
             }
         }
