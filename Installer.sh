@@ -1,5 +1,5 @@
-#!/bin/bash
-echo "Compiling..."
+ #!/bin/bash
+ echo "Compiling..."
 clang++ Calculator.cpp CalculatorFunctions.cpp -std=c++17 -o Calculator
 echo "Done!"
 echo "Cleaning up..."
@@ -8,7 +8,7 @@ mv Calculator ${HOME}/Desktop
 cd .git/
 rmdir --ignore-fail-on-non-empty ${HOME}/Terminal-Based-Calculator/.git
 rmdir --ignore-fail-on-non-empty ${HOME}/Terminal-Based-Calculator
-echo "Done!"
+echo "Done!" 
 echo "Now enjoy your calculator :)!"
 echo "Closing in:"
 echo "3"
@@ -17,4 +17,4 @@ echo "2"
 sleep 1
 echo "1"
 sleep 1
-killall alacritty
+exit
