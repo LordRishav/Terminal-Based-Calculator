@@ -10,7 +10,7 @@ desktop_file='Calculator.desktop'
 cat >"$desktop_file" <<-EOF
 [Desktop Entry]
 Name=Calculator
-Exec=/home/bennet-tsoris/Calculator/CalculatorExec
+Exec=${HOME}/CalculatorFiles/CalculatorExec
 Terminal=true
 Comment="Calculator for simple math problems."
 Type=Application
