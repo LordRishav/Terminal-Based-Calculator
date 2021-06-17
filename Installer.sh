@@ -6,7 +6,6 @@ echo "Cleaning up..."
 sleep 1
 mkdir ${HOME}/Calculator
 mv CalculatorExec ${HOME}/Calculator
-mv Calculator.desktop ${HOME}/Desktop
 desktop_file='Calculator.desktop'
 cat >"$desktop_file" <<-EOF
 	[Desktop Entry]
@@ -17,6 +16,7 @@ cat >"$desktop_file" <<-EOF
     Type=application
 	...
 EOF
+mv Calculator.desktop ${HOME}/Desktop
 rm -rf ${HOME}/Terminal-Based-Calculator
 echo "Done!"
 echo "Now enjoy your calculator :)!"
