@@ -5,6 +5,7 @@ Open up your terminal application, Then type in
 this downloads the folder with all the necessary files, next you have to go into the folder
 we downloaded to do this type in 
 > cd Terminal-Based-Calculator 
+
 and finally to run the installer type in 
 > bash Installer.sh.
 
