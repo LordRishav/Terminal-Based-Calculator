@@ -4,8 +4,8 @@ clang++ Calculator.cpp CalculatorFunctions.cpp -std=c++17 -o CalculatorExec
 echo "Done!"
 echo "Cleaning up..."
 sleep 1
-mkdir ${HOME}/Calculator
-mv CalculatorExec ${HOME}/Calculator
+mkdir ${HOME}/CalculatorFiles
+mv CalculatorExec ${HOME}/CalculatorFiles
 desktop_file='Calculator.desktop'
 cat >"$desktop_file" <<-EOF
 [Desktop Entry]
@@ -16,6 +16,7 @@ Comment="Calculator for simple math problems."
 Type=Application
 EOF
 mv Calculator.desktop ${HOME}/Desktop
+chmod +x ${HOME}/Desktop/Calculator.desktop
 rm -rf ${HOME}/Terminal-Based-Calculator
 echo "Done!"
 echo "Now enjoy your calculator :)!"
