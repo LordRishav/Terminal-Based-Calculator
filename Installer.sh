@@ -1,13 +1,12 @@
  #!/bin/bash
  echo "Compiling..."
-clang++ Calculator.cpp CalculatorFunctions.cpp -std=c++17 -o Calculator
+clang++ Calculator.cpp CalculatorFunctions.cpp -std=c++17 -o CalculatorExec
 echo "Done!"
 echo "Cleaning up..."
 sleep 1
-mv Calculator ${HOME}/Desktop
-cd .git/
-rmdir --ignore-fail-on-non-empty ${HOME}/Terminal-Based-Calculator/.git
-rmdir --ignore-fail-on-non-empty ${HOME}/Terminal-Based-Calculator
+mkdir ${HOME}/Calculator
+mv CalculatorExec ${HOME}/Calculator
+rm -rf  ${HOME}/Terminal-Based-Calculator
 echo "Done!" 
 echo "Now enjoy your calculator :)!"
 echo "Closing in:"
