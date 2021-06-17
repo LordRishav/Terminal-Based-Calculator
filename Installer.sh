@@ -8,13 +8,12 @@ mkdir ${HOME}/Calculator
 mv CalculatorExec ${HOME}/Calculator
 desktop_file='Calculator.desktop'
 cat >"$desktop_file" <<-EOF
-	[Desktop Entry]
-	Name=Calculator
-	Exec=${HOME}/Calculator/CalculatorExec
-    Terminal=true
-    Comment=Calculator for simple math problems.
-    Type=application
-	...
+[Desktop Entry]
+Name=Calculator
+Exec=/home/bennet-tsoris/Calculator/CalculatorExec
+Terminal=true
+Comment="Calculator for simple math problems."
+Type=Application
 EOF
 mv Calculator.desktop ${HOME}/Desktop
 rm -rf ${HOME}/Terminal-Based-Calculator
