@@ -33,14 +33,14 @@ desktop: install
 	echo "Terminal=true" >> $(DESKTOPFILE)
 	echo "Comment='Calculator for simple math problems'" >> $(DESKTOPFILE)
 	echo "Type=Application" >> $(DESKTOPFILE)
-	echo "Icon=${HOME}/CalculatorFiles/CalculatorIcon.png" >> $(DESKTOPFILE)
+	echo "Icon=$${HOME}/CalculatorFiles/CalculatorIcon.png" >> $(DESKTOPFILE)
 	@echo "Copying the desktop file to" $(DESKTOPDIR) "..."
-	mkdir ${HOME}/CalculatorFiles
-	cd ${HOME}/Terminal-Based-Calculator
+	mkdir $${HOME}/CalculatorFiles
+	cd $${HOME}/Terminal-Based-Calculator
 	cp $(DESKTOPFILE) $(DESKTOPDIR)
-	cp $(DESKTOPFILE) ${HOME}/Desktop
-	cp CalculatorIcon.png ${HOME}/CalculatorFiles
-	mv CalculatorIcon.png ${HOME}/CalculatorFiles
+	cp $(DESKTOPFILE) $${HOME}/Desktop
+	cp CalculatorIcon.png $${HOME}/CalculatorFiles
+	mv CalculatorIcon.png $${HOME}/CalculatorFiles
 	rm -rf Terminal-Based-Calculator
 	@echo "Done!"
 clean:
