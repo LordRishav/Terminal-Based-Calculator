@@ -27,7 +27,6 @@ install: build
 desktop: install
 	rm -f $(DESKTOPFILE)
 	@echo "Creating the desktop file..."
-
 	echo "[Desktop Entry]" > $(DESKTOPFILE)
 	echo "Name=Calculator" >> $(DESKTOPFILE)
 	echo "Exec=" $(DESTDIR)/$(OUT)  >> $(DESKTOPFILE)
@@ -35,11 +34,12 @@ desktop: install
 	echo "Comment='Calculator for simple math problems'" >> $(DESKTOPFILE)
 	echo "Type=Application" >> $(DESKTOPFILE)
 	echo "Icon=${HOME}/CalculatorFiles/CalculatorIcon.png" >> $(DESKTOPFILE)
-
 	@echo "Copying the desktop file to" $(DESKTOPDIR) "..."
-	mkdir $(DESKTOPDIR)
+	mkdir ~/CalculatorFiles
+	cd ~/Terminal-Based-Calculator
 	cp $(DESKTOPFILE) $(DESKTOPDIR)
-	cp $(DESKTOPFILE) $(HOME)/Desktop
+	cp $(DESKTOPFILE) ~/Desktop
+	cp CalculatorIcon.png ~/CalculatorFiles
 	mv CalculatorIcon.png ~/CalculatorFiles
 	rm -rf Terminal-Based-Calculator
 	@echo "Done!"
