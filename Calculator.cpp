@@ -6,14 +6,16 @@
 double total_num;
 int end_option;
 int option;
-bool loop = true;
 int main()
 {
+    bool loop = true;
     while (loop)
     {
         std::cout << "Please select an option from the list:\n";
         std::cout << "1: Add | 2: Subtract | 3: Divide | 4: Multiply | 5: Square root \n";
+        std::cout << "\n";
         std::cin >> option;
+        std::cout << "\n";
         switch (option)
         {
         case 1:

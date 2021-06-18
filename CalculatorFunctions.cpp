@@ -5,6 +5,7 @@
 #include "CalculatorFunctions.h"
 using namespace std;
 static double ans = 0;
+bool loop2 = true;
 double math(std::string text, std::function<double(double, double)> code, bool use_last_num, std::string math_symbol)
 {
     double total_num = 0;
@@ -19,17 +20,21 @@ double math(std::string text, std::function<double(double, double)> code, bool u
         std::cin >> num2;
         total_num = code(num1, num2);
         ans = total_num;
+        std::cout << "\n";
         std::cout << num1 << math_symbol << num2 << " = " << total_num << "\n";
-    } else {
-        
-        total_num = 0;
-        std::cout << text << "\n";
-        std::cout << "Fetching last number...\n";
-        std::cout << ans << "\n";
-        std::cout << "Please enter the number here: \n";
-        std::cin >> num2;
-        total_num = code(num2, ans);
-        std::cout << ans << math_symbol << num2 << " = " << total_num << "\n";
+        std::cout << "\n";
+    }
+    else
+    {
+            std::cout << text << "\n" << "\n";
+            std::cout << "Fetching last number...\n";
+            std::cout << ans << "\n";
+            std::cout << "Please enter the number here: \n";
+            std::cin >> num2;
+            total_num = code(num2, ans);
+            std::cout << "\n";
+            std::cout << ans << math_symbol << num2 << " = " << total_num << "\n";
+            std::cout << "\n";
     }
     return total_num;
 }
@@ -45,6 +50,7 @@ double square_root(std::string text, bool use_last_num)
         total_num = sqrt(sqrt_num);
         ans = total_num;
         std::cout << "The square root of " << sqrt_num << " = " << total_num << "\n";
+        std::cout << "\n";
     }
     else
     {
