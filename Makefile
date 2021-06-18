@@ -35,12 +35,12 @@ desktop: install
 	echo "Type=Application" >> $(DESKTOPFILE)
 	echo "Icon=${HOME}/CalculatorFiles/CalculatorIcon.png" >> $(DESKTOPFILE)
 	@echo "Copying the desktop file to" $(DESKTOPDIR) "..."
-	mkdir ~/CalculatorFiles
-	cd ~/Terminal-Based-Calculator
+	mkdir ${HOME}/CalculatorFiles
+	cd ${HOME}/Terminal-Based-Calculator
 	cp $(DESKTOPFILE) $(DESKTOPDIR)
-	cp $(DESKTOPFILE) ~/Desktop
-	cp CalculatorIcon.png ~/CalculatorFiles
-	mv CalculatorIcon.png ~/CalculatorFiles
+	cp $(DESKTOPFILE) ${HOME}/Desktop
+	cp CalculatorIcon.png ${HOME}/CalculatorFiles
+	mv CalculatorIcon.png ${HOME}/CalculatorFiles
 	rm -rf Terminal-Based-Calculator
 	@echo "Done!"
 clean:
