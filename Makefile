@@ -2,29 +2,26 @@
 install:
 	g++  -Os -std=c++17 Calculator.cpp CalculatorFunctions.cpp -o CalculatorExecutable 
 	read -r -p "Would you like a .desktop file on your desktop? [Y/n] " input
-	if [[ input = "Y" || input = "y" ]]
-	then
-	cat > "Calculator.desktop <<- EOF" 
-	[Desktop Entry]
-	Comment='Calculator for simple problems!'
-	Exec=/usr/local/CalculatorFiles/CalculatorExec
-	Icon=/usr/local/CalculatorFiles/CalculatorIcon.png
-	Name=Calculator
-	Terminal=true
-	Type=Application
-	EOF
+	if [[ input = "Y" || input = "y" ]] then;
+	cat > "Calculator.desktop" 
+	echo "[Desktop Entry]" >> Calculatlor.desktop 
+	echo "Name=Calculator" >> Calculator.desktop
+	echo "Comment='A simple calculator, for simple math problems'" >> Calculator.desktop
+	echo "Exec=/usr/local/CalculatorFiles/CalculatorExecutable" >> Calculator.desktop
+	echo "Icon=/usr/local/CalculatorFiles/CalculatorIcon.png" >> Calculator.desktop
+	echo "Type=Application" >> Calculator.desktop
+	echo "Terminal=true" >> Calculator.desktop
 	cp Calculator.desktop ${HOME}/Desktop
-	if [[ input = "N" || input = "n" ]]
-	then
-	cat > "Calculator.desktop" <<- EOF
-	[Desktop Entry]
-	Comment='Calculator for simple problems!'
-	Exec=/usr/local/CalculatorFiles/CalculatorExec
-	Icon=/usr/local/CalculatorFiles/CalculatorIcon.png
-	Name=Calculator
-	Terminal=true
-	Type=Application
-	EOF
+	fi
+	if [[ input = "N" || input = "n" ]] then;
+	cat > "Calculator.desktop"
+	echo "[Desktop Entry]" >> Calculatlor.desktop 
+	echo "Name=Calculator" >> Calculator.desktop
+	echo "Comment='A simple calculator, for simple math problems'" >> Calculator.desktop
+	echo "Exec=/usr/local/CalculatorFiles/CalculatorExecutable" >> Calculator.desktop
+	echo "Icon=/usr/local/CalculatorFiles/CalculatorIcon.png" >> Calculator.desktop
+	echo "Type=Application" >> Calculator.desktop
+	echo "Terminal=true" >> Calculator.desktop
 	fi
 
 sudo_install:
