@@ -1,57 +1,42 @@
-# Makefile for Terminal-Based-Calculator
-# Project by T4rtP1ck13 (https://github/com/T4rtP1ck13)
-# Makefile by Bowuigi   (https://github.com/Bowuigi)
 
-IN=$(wildcard *.cpp)
-OUT=tbc
-CPPFLAGS=-std=c++17 -Os
-CPP=c++
-STRIP=strip
-DESTDIR=/usr/local/bin
-DESKTOPDIR=/usr/local/share/applications
-DESKTOPFILE=Calculator.desktop
+install:
+	g++  -Os -std=c++17 Calculator.cpp CalculatorFunctions.cpp -o CalculatorExecutable 
+	read -r -p "Would you like a .desktop file on your desktop? [Y/n] " input
+	if [[ input = "Y" || input = "y" ]]
+	then
+	cat > "Calculator.desktop <<- EOF" 
+	[Desktop Entry]
+	Comment='Calculator for simple problems!'
+	Exec=/usr/local/CalculatorFiles/CalculatorExec
+	Icon=/usr/local/CalculatorFiles/CalculatorIcon.png
+	Name=Calculator
+	Terminal=true
+	Type=Application
+	EOF
+	cp Calculator.desktop ${HOME}/Desktop
+	if [[ input = "N" || input = "n" ]]
+	then
+	cat > "Calculator.desktop" <<- EOF
+	[Desktop Entry]
+	Comment='Calculator for simple problems!'
+	Exec=/usr/local/CalculatorFiles/CalculatorExec
+	Icon=/usr/local/CalculatorFiles/CalculatorIcon.png
+	Name=Calculator
+	Terminal=true
+	Type=Application
+	EOF
+	fi
 
-build:
-	@echo "Compiling..."
-	$(CPP) $(IN) $(CPPFLAGS) -o $(OUT)
-	$(STRIP) $(OUT)
-	@echo "Done!"
-	@echo "Enjoy your calculator!"
-
-install: build
-	@echo "Installing to" $(DESTDIR) "..."
-	mkdir -p $(DESTDIR)
-	cp $(OUT) $(DESTDIR)
-	@echo "Done!"
-
-desktop: install
-	rm -f $(DESKTOPFILE)
-	@echo "Creating the desktop file..."
-	echo "[Desktop Entry]" > $(DESKTOPFILE)
-	echo "Name=Calculator" >> $(DESKTOPFILE)
-	echo "Exec=" $(DESTDIR)/$(OUT)  >> $(DESKTOPFILE)
-	echo "Terminal=true" >> $(DESKTOPFILE)
-	echo "Comment='Calculator for simple math problems'" >> $(DESKTOPFILE)
-	echo "Type=Application" >> $(DESKTOPFILE)
-	echo "Icon=$${HOME}/CalculatorFiles/CalculatorIcon.png" >> $(DESKTOPFILE)
-	@echo "Copying the desktop file to" $(DESKTOPDIR) "..."
-	mkdir $${HOME}/CalculatorFiles
-	cd $${HOME}/Terminal-Based-Calculator
-	cp $(DESKTOPFILE) $(DESKTOPDIR)
-	cp $(DESKTOPFILE) $${HOME}/Desktop
-	cp CalculatorIcon.png $${HOME}/CalculatorFiles
-	mv CalculatorIcon.png $${HOME}/CalculatorFiles
-	rm -rf Terminal-Based-Calculator
-	@echo "Done!"
-clean:
-	@echo "Cleaning..."
-	rm -f $(OUT)
-	@echo "Done!"
+sudo_install:
+	mkdir /usr/local/CalculatorFiles
+	cp CalculatorExecutable CalculatorIcon.png /usr/local/CalculatorFiles
+	cp Calculator.desktop /usr/local/share/applications
 
 uninstall:
-	@echo "Uninstalling..."
-	rm -f $(DESTDIR)/$(OUT)
-	rm -f $(DESKTOPDIR)/$(DESKTOPFILE)
-	@echo "Done!"
+	rm ${HOME}/Desktop/Calculator.desktop
 
-.PHONY: build desktop install clean uninstall
+sudo_uninstall:
+	rm -rf /usr/local/CalculatorFiles
+	rm /usr/local/share/applications/Calculator.desktop
+
+.PHONY: install sudo_install uninstall sudo_uninstall
