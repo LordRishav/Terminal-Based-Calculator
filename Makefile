@@ -11,7 +11,7 @@ uninstall:
 
 sudo_uninstall:
 	rm -rf /usr/local/CalculatorFiles
-	rm -f bah/usr/local/share/applications/Calculator.desktop
+	rm -f /usr/local/share/applications/Calculator.desktop
 
 make_desktop_file:
 	touch Calculator.desktop
