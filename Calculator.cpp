@@ -11,13 +11,11 @@ int main()
     bool loop = true;
     while (loop)
     {
-        //asks YOU that dumb question thing I made lol
         std::cout << "Please select an option from the list:\n";
         std::cout << "1: Add | 2: Subtract | 3: Divide | 4: Multiply | 5: Square root \n";
         std::cout << "\n";
         std::cin >> option;
         std::cout << "\n";
-        //asks your compooter a question
         switch (option)
         {
         case 1:
@@ -38,23 +36,19 @@ int main()
             total_num = square_root("Square root", false);
             break;
         }
-        //Asks YOU ANOTHER DUMB, STUPID QUESTION!
         std::cout << "Please choose an option from the list:" << '\n';
         std::cout << "1: Continue | 2: Conitnue with number from last problem | 3: Exit the program" << '\n';
         std::cin >> end_option;
-        //compooter question
         if (end_option == 1)
         {
             loop = true;
         }
-        //JEEZ!!! How many compooter questions are there????????!!!!
         else if (end_option == 2)
         {
             std::cout << "Please select an option from the list:\n";
             std::cout << "1: Add | 2: Subtract | 3: Divide | 4: Multiply | 5: Square root \n";
             int option2;
             std::cin >> option2;
-            //MORE!????
             switch (option2)
             {
             case 1:
@@ -74,7 +68,6 @@ int main()
                 break;
             }
         }
-        //EVEN MOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOORE?????!!!!!!!!!!!????!?!??!?!?!?
         else if (end_option == 3)
         {
             loop = false;
