@@ -8,6 +8,7 @@ case $input in
 [iI])
     make compile
     make make_desktop_file
+    chmod +x Calculator.desktop
     sudo make sudo_install
     read -r -p "Would you like a .desktop file on your desktop? (Y\n)" input2
     case $input2 in
