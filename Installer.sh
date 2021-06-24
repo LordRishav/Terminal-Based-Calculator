@@ -16,7 +16,7 @@ case $input in
         cp Calculator.desktop ${HOME}/Desktop
         ;;
     *)
-        echo "Hey! That's not an option!"
+        echo "OK :("
         ;;
     esac
     ;;
