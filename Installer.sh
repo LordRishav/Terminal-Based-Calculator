@@ -7,12 +7,12 @@ case $input in
     ;;
 [iI])
     make compile
-    make make_desktop_file
-    chmod +x Calculator.desktop
     sudo make sudo_install
-    read -r -p "Would you like a .desktop file on your desktop? (Y\n)" input2
+    read -r -p "Would you like to integrate the calculator to your menu? (Y\n)" input2
     case $input2 in
     [yY])
+        make make_desktop_file
+        chmod +x Calculator.desktop
         cp Calculator.desktop ${HOME}/Desktop
         ;;
     *)
